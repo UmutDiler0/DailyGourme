@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1038943827529",
+    "project_id": "dailygourme2",
+    "storage_bucket": "dailygourme2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1038943827529:android:0628c2924b399798fc3198",
+        "android_client_info": {
+          "package_name": "com.umutdiler.dailygourme2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8zAYOr3m6Sr8YJQ7Njc2xwV_Es8MC13A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

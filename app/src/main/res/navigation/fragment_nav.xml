@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_nav"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.umutdiler.dailygourme2.fragments.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment2_to_registerFragment2"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_mainFragment2_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.umutdiler.dailygourme2.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" >
+        <action
+            android:id="@+id/action_registerFragment2_to_profileFragment2"
+            app:destination="@id/profileFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.umutdiler.dailygourme2.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" >
+
+        <action
+            android:id="@+id/action_profileFragment_to_addRecepieFragment"
+            app:destination="@id/addRecepieFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_myRecepies"
+            app:destination="@id/myRecepies" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.umutdiler.dailygourme2.fragments.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addRecepieFragment"
+        android:name="com.umutdiler.dailygourme2.fragments.AddRecepieFragment"
+        android:label="fragment_add_recepie"
+        tools:layout="@layout/fragment_add_recepie" />
+    <fragment
+        android:id="@+id/myRecepies"
+        android:name="com.umutdiler.dailygourme2.fragments.MyRecepies"
+        android:label="fragment_my_recepies"
+        tools:layout="@layout/fragment_my_recepies" />
+</navigation>

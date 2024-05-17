@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/foodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Food Name"
+        android:textSize="25sp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"/>
+    <TextView
+        android:id="@+id/foodIngredients"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingredients"
+        android:layout_toRightOf="@+id/foodName"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:layout_marginStart="25dp"/>
+    <TextView
+        android:id="@+id/foodInstructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodName"
+        android:layout_marginStart="20dp"
+        android:text="Food Instructions"
+        android:layout_marginTop="15dp"
+        android:textSize="20sp"/>
+
+</RelativeLayout>
