@@ -132,3 +132,5 @@ G.idea/sonarlint/issuestore/8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e,3\2\32
 Q.idea/sonarlint/securityhotspotstore/7/e/7eec961e68cce87baeebf4a221b47984ec8cbee3,d\4\d4407e472b2a590fae3b5133d4f9e43a6d9d938e
 w
 G.idea/sonarlint/issuestore/b/a/ba9269fd0b76469e65ecea710b32f523746dd4b1,5\5\554bd8e73e9a42cd0ec35e9498158057ecbf3984
+z
+Japp/src/main/java/com/umutdiler/dailygourme2/classes/SecretsApplication.kt,f\d\fd03335d050fc32149bd189b6ae6d86d08d58cbd

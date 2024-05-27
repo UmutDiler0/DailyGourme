@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.umutdiler.dailygourme2.classes.Person
 import com.umutdiler.dailygourme2.databinding.FragmentMainBinding
 
 
@@ -21,13 +22,14 @@ class MainFragment : Fragment() {
     private var _binding : FragmentMainBinding? = null
     private val binding get() = _binding!!
     private lateinit var auth : FirebaseAuth
+    private var person = Person("","","","","","","")
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = Firebase.auth
-
-
     }
 
     override fun onCreateView(
@@ -50,18 +52,19 @@ class MainFragment : Fragment() {
             Navigation.findNavController(it).navigate(action)
         }
         binding.loginButton.setOnClickListener {
-            val email = binding.emailText.text.toString()
-            val password = binding.passwordText.text.toString()
+            person.email = binding.emailText.text.toString()
+            person.password = binding.passwordText.text.toString()
 
             // boş alan olmadığından emin oluyoruz ve eğer boş alan varsa kullanıcıya uyarı veriyoruz aynı zamanda email ve passwordin doğru olup olmadığını kontrol ediyoruz
 
-            if(email.isEmpty() || password.isEmpty()){
-                Toast.makeText(requireContext(),"Email or Password can't leave empty",Toast.LENGTH_LONG).show()
+            if(person.email.isEmpty() || person.password.isEmpty()){
+                Toast.makeText(requireContext(),"Email or Password can't leave empty",
+                    Toast.LENGTH_LONG).show()
             }else{
-                auth.signInWithEmailAndPassword(email,password).addOnCompleteListener {task->
+                auth.signInWithEmailAndPassword(person.email,person.password).addOnCompleteListener {task->
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
-                        val action = MainFragmentDirections.actionMainFragment2ToProfileFragment2()
+                        val action = MainFragmentDirections.actionMainFragment2ToProfileFragment2(person.email)
                         Navigation.findNavController(it).navigate(action)
                         val user = auth.currentUser
                     }else{
@@ -74,7 +77,8 @@ class MainFragment : Fragment() {
     }
     fun updateUI(user : FirebaseUser?){
         if(user == null){
-            Toast.makeText(requireContext(),"Email or Password are not Correct",Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(),"Email or Password are not Correct",
+                Toast.LENGTH_LONG).show()
         }
     }
 

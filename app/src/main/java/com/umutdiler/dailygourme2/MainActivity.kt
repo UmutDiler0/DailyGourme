@@ -11,15 +11,8 @@ import com.umutdiler.dailygourme2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    /*burada viewbinding kullanıyoruz
-     viewbinding ile layout dosyalarındaki elemanlara erişim sağlayabiliyoruz
-     textbox , button gibi elemanlara erişim sağlayabiliyoruz
-     */
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
-
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +20,6 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        // burada ise navigation controller oluşturuyoruz ve fragmentlarımınız yol haritasını belirliyoruz
         navController = Navigation.findNavController(this, R.id.fragment)
 
     }

@@ -1,8 +1,10 @@
 
-ukotlin:S1481X"+Remove this unused "person" local variable.(Œ´Áîÿÿÿÿÿ8°÷—›ø1J$939b1b30-18c8-4ec2-96df-7986d48259ab
-xkotlin:S1066G".Merge this "if" statement with the nested one.(ÎÏªÊûÿÿÿÿ8¸÷—›ø1J$3d05686c-be27-4d8d-8c7a-e31537d8cca6
-qkotlin:S6518K",Replace function call with indexed accessor.(Ç…ö¹8»÷—›ø1J$c889b5a9-2dde-4f7c-bf4a-54d7da223792
-qkotlin:S6518L",Replace function call with indexed accessor.(º½·¼8»÷—›ø1J$8c1aaec4-cddc-4f47-b889-084cda2a3aef
-qkotlin:S6518M",Replace function call with indexed accessor.(ªÓìš8»÷—›ø1J$c45927e3-c782-4f1d-8ac6-c58dac548a1e
-vkotlin:S6518N",Replace function call with indexed accessor.(üÎ¾ºşÿÿÿÿ8¼÷—›ø1J$0452f27a-bc81-4d5c-8225-42d0a58c1643
-vkotlin:S6518O",Replace function call with indexed accessor.(Ï¼¥ûÿÿÿÿ8¼÷—›ø1J$42b5a559-f541-4c0d-a6ed-5c0ad0aa416e
+ekotlin:S6615$" Remove this useless initializer.(éûÕ8ÿŸáû1J$2ad5d4d3-d81e-4102-b136-16725478fdf0
+œkotlin:S3776;"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(µĞ‚úÿÿÿÿ8 ÿŸáû1J$2973c194-b97b-420b-8fe2-67d3aad6be14
+skotlin:S1066E".Merge this "if" statement with the nested one.(€ÅÊ¥8£ÿŸáû1J$7578dbbc-328d-40d8-93a4-0fa5d0faa4e5
+vkotlin:S6518K",Replace function call with indexed accessor.(²¨­âşÿÿÿÿ8¦ÿŸáû1J$f9e85f3a-55f6-455a-acb3-73a1a5515589
+qkotlin:S6518L",Replace function call with indexed accessor.(Ç…ö¹8¦ÿŸáû1J$b29422ba-ab48-43ab-8c81-13ee0fc1208f
+qkotlin:S6518M",Replace function call with indexed accessor.(º½·¼8¦ÿŸáû1J$4e51a3ca-d4d0-47c3-9e13-8a5569dec224
+qkotlin:S6518N",Replace function call with indexed accessor.(ªÓìš8¦ÿŸáû1J$662bab98-3274-4176-997b-b1c192f27e9e
+vkotlin:S6518O",Replace function call with indexed accessor.(üÎ¾ºşÿÿÿÿ8¦ÿŸáû1J$50a6a6f6-4def-4f72-921a-7cc7fe1082d8
+vkotlin:S6518P",Replace function call with indexed accessor.(Ï¼¥ûÿÿÿÿ8¦ÿŸáû1J$c57f9574-8f15-46f0-a32b-203a57367f92

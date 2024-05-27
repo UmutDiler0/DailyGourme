@@ -15,8 +15,6 @@ class SplashFragment : Fragment() {
     private var _binding : FragmentSplashBinding? = null
     private val binding get() = _binding!!
 
-    // burası başlangıç animasyon sayfasının yapıldığı yer burada 5 saniye bekleyip main fragmente geçiş yapılıyor
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

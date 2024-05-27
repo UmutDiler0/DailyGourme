@@ -1,5 +1,7 @@
 
-œkotlin:S3776'"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¾îÇ›üÿÿÿÿ8ÇÁ™»ø1J$4588d07f-8780-425e-9810-74496b0ef40d
-qkotlin:S65183",Replace function call with indexed accessor.(Ç…ö¹8İÁ™»ø1J$fb092f21-2cd5-4a76-ae75-24d29f10741e
-qkotlin:S65184",Replace function call with indexed accessor.(¾¶¨î8ŞÁ™»ø1J$fb1caa37-a50c-4eaa-ab21-d02c0dc8b7b4
-vkotlin:S65185",Replace function call with indexed accessor.(÷á±Ôùÿÿÿÿ8ŞÁ™»ø1J$266c09e3-2532-4957-8587-1ce054216af2
+ƒkotlin:S6619*">Remove this useless non-null assertion !!, it always succeeds.(¸ç°¨8ùïáú1J$d4caf714-2ecb-4758-8610-04774cf11315
+^kotlin:S1128"Remove this unused import.(ìüó+8ë‚“áú1J$17957eef-5edb-4431-a928-8b64520a9c60
+xkotlin:S1066/".Merge this "if" statement with the nested one.(ÎÏªÊûÿÿÿÿ8Óòøàú1J$11db7c19-31da-4999-bc5e-52330822a145
+qkotlin:S65183",Replace function call with indexed accessor.(¡êú¥8½œİû1J$bc1338c4-8166-4b57-a6d2-3c1a1d6625bb
+qkotlin:S65184",Replace function call with indexed accessor.(¾¶¨î8¾œİû1J$748f5eb8-f7bd-4370-9ff8-6cbce74c41ef
+vkotlin:S65185",Replace function call with indexed accessor.(÷á±Ôùÿÿÿÿ8¾œİû1J$4d623e6f-2179-42f6-92b9-54700e74dd80

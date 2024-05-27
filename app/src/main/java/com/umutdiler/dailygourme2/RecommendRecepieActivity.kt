@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.ai.client.generativeai.GenerativeModel
+import com.google.android.libraries.places.api.Places
+import com.umutdiler.dailygourme2.classes.API_KEY
 import kotlinx.coroutines.runBlocking
 
 class RecommendRecepieActivity : AppCompatActivity() {
@@ -17,25 +19,28 @@ class RecommendRecepieActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_recommend_recepie)
 
-        // burada etPromt ile kullanıcıdan alınan veriyi alıyoruz ve btnSubmit ile de bu veriyi kullanarak modeli çalıştırıyoruz
-        // ve geminiye prompt olarak veriyoruz ve sonucu tVResult ile ekrana yazdırıyoruz
-
         val eTPrompt= findViewById<EditText>(R.id.eTPrompt)
         val btnSubmit= findViewById<Button>(R.id.btnSubmit)
         val tVResult= findViewById<TextView>(R.id.tVResult)
 
-        btnSubmit.setOnClickListener {
-            val prompt= eTPrompt.text.toString()
 
-            val generativeModel = GenerativeModel(
-                // For text-only input, use the gemini-pro model
-                modelName = "gemini-pro",
-                apiKey = "AIzaSyCS5iMCL6yNReRJMavfBt5-GhpGkPAdr3c",
-                // ENTER YOUR KEY
-            )
-            runBlocking {
-                val response = generativeModel.generateContent(prompt)
-                tVResult.text= response.text
+
+        btnSubmit.setOnClickListener {
+            val prompt = eTPrompt.text.toString()
+
+            if (prompt.contains("recepie") || prompt.contains("tarif")) {
+                val generativeModel = GenerativeModel(
+
+                    modelName = "gemini-pro",
+                    apiKey = API_KEY
+
+                )
+                runBlocking {
+                    val response = generativeModel.generateContent(prompt)
+                    tVResult.text = response.text
+                }
+            } else {
+                tVResult.text = "Please enter a prompt that contains the word 'recepie' or 'tarif'"
             }
         }
 

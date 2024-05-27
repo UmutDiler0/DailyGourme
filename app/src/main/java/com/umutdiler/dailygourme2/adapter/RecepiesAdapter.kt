@@ -7,14 +7,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.umutdiler.dailygourme2.classes.Recepies
 import com.umutdiler.dailygourme2.databinding.RecyclerRowBinding
 
-class RecepiesAdapter(var recepieList : ArrayList<Recepies>) : RecyclerView.Adapter<RecepiesAdapter.RecepiesViewHolder>() {
+class RecepiesAdapter(var recepieList : MutableList<Recepies>) : RecyclerView.Adapter<RecepiesAdapter.RecepiesViewHolder>() {
 
     class RecepiesViewHolder(val binding : RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
-
+        val recyclerRowBinding = binding
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecepiesViewHolder {
-        val binding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val binding = RecyclerRowBinding.inflate(LayoutInflater.from(parent.context),
+            parent,false)
         return RecepiesViewHolder(binding)
     }
 
@@ -23,10 +24,10 @@ class RecepiesAdapter(var recepieList : ArrayList<Recepies>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: RecepiesViewHolder, position: Int) {
-        with(holder.binding){
-            foodName.text = recepieList[position].name
-            foodIngredients.text = recepieList[position].ingredients
-            foodInstructions.text = recepieList[position].descripton
-        }
+        val recepie = recepieList[position]
+        holder.recyclerRowBinding.foodName.text = recepie.foodName
+        holder.recyclerRowBinding.foodIngredients.text = recepie.ingredients
+        holder.recyclerRowBinding.foodInstructions.text = recepie.description
+
     }
 }

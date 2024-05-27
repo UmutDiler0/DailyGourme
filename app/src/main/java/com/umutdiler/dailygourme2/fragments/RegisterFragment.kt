@@ -1,5 +1,6 @@
 package com.umutdiler.dailygourme2.fragments
 
+import android.accounts.Account
 import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
@@ -24,7 +25,8 @@ class RegisterFragment : Fragment() {
     private val binding get() = _binding!!
     private val auth = Firebase.auth
     private val db = Firebase.firestore
-    private var person = Person("","","","","")
+    private var person= Person("","","","","","","")
+
 
 
     override fun onCreateView(
@@ -46,9 +48,10 @@ class RegisterFragment : Fragment() {
 
         //Kullanıcının girdiği bilgileri alıyoruz ve değişkenlere atıyoruz
 
-            val email = binding.registerEmail.text.toString()
-            val password = binding.registerPassword.text.toString()
+
             with(person){
+                email = binding.registerEmail.text.toString()
+                password = binding.registerPassword.text.toString()
                 name = binding.editNameText.text.toString()
                 lastName = binding.editLastText.text.toString()
                 age = binding.editAgeText.text.toString()
@@ -58,12 +61,16 @@ class RegisterFragment : Fragment() {
 
             //Eğer boş bir alan varsa kullanıcıya uyarı veriyoruz yoksa database'e kayıt işlemini gerçekleştiriyoruz
 
-            if(email.isEmpty() || password.isEmpty() || person.height.isEmpty() || person.weight.isEmpty() || person.name.isEmpty() || person.age.isEmpty() || person.lastName.isEmpty()){
+            if(person.email.isEmpty() || person.password.isEmpty() || person.height.isEmpty() ||
+                person.weight.isEmpty() ||
+                person.name.isEmpty() || person.age.isEmpty() || person.lastName.isEmpty()){
                 Toast.makeText(requireContext(),"Please fill all the blanks",Toast.LENGTH_LONG).show()
             }else{
 
-                auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener {task ->
+                auth.createUserWithEmailAndPassword(person.email,person.password).addOnCompleteListener {task ->
                     val user = hashMapOf(
+                        "email" to person.email,
+                        "password" to person.password,
                         "name" to person.name,
                         "last" to person.lastName,
                         "age" to person.age,
@@ -72,7 +79,7 @@ class RegisterFragment : Fragment() {
                     )
                     if(task.isSuccessful){
                         db.collection("users")
-                            .document(person.name)
+                            .document(person.email)
                             .set(user)
                             .addOnSuccessListener {documentReference->
                                 Log.d(TAG,"DocumentSnapshot added with ID: ${documentReference}")
@@ -81,7 +88,7 @@ class RegisterFragment : Fragment() {
                                 Log.w(TAG,"Error added document",e)
                             }
                         Log.d(TAG,"createUserWithEmail:Success")
-                        val action = RegisterFragmentDirections.actionRegisterFragment2ToProfileFragment2()
+                        val action = RegisterFragmentDirections.actionRegisterFragment2ToProfileFragment2(person.email)
                         Navigation.findNavController(it).navigate(action)
 
                     }else{

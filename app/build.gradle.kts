@@ -5,7 +5,22 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.gms.google-services")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 
+}
+secrets {
+    // Optionally specify a different file name containing your secrets.
+    // The plugin defaults to "local.properties"
+    propertiesFileName = "classes.SecretsApplication"
+
+    // A properties file containing default secret values. This file can be
+    // checked in version control.
+    defaultPropertiesFileName = "local.properties"
+
+    // Configure which keys should be ignored by the plugin by providing regular expressions.
+    // "sdk.dir" is ignored by default.
+    ignoreList.add("AIzaSyCS5iMCL6yNReRJMavfBt5-GhpGkPAdr3c") // Ignore the key "keyToIgnore"
+    ignoreList.add("sdk.*")       // Ignore all keys matching the regexp "sdk.*"
 }
 
 android {
@@ -50,11 +65,11 @@ android {
 
     dependencies {
         implementation("androidx.activity:activity:1.8.0")
+        implementation("com.google.android.libraries.places:places:3.4.0")
         val nav_version = "2.7.7"
         val lottieVersion = "3.4.0"
 
         implementation("com.google.ai.client.generativeai:generativeai:0.5.0")
-        implementation("com.squareup.picasso:picasso:2.8")
         implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
         implementation("com.airbnb.android:lottie:$lottieVersion")
         implementation("androidx.core:core-ktx:1.12.0")
