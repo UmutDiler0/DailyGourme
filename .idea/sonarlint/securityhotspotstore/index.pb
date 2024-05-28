@@ -134,3 +134,11 @@ w
 G.idea/sonarlint/issuestore/b/a/ba9269fd0b76469e65ecea710b32f523746dd4b1,5\5\554bd8e73e9a42cd0ec35e9498158057ecbf3984
 z
 Japp/src/main/java/com/umutdiler/dailygourme2/classes/SecretsApplication.kt,f\d\fd03335d050fc32149bd189b6ae6d86d08d58cbd
+o
+?app/src/main/java/com/umutdiler/dailygourme2/classes/Partner.kt,1\0\107a118a66fa16fd551805b9466d70e1ae3d2fce
+o
+?app/src/main/java/com/umutdiler/dailygourme2/classes/GetData.kt,b\0\b0e76a4575b2ddabd9064bbe7eebd3bec812d3db
+l
+<app/src/main/java/com/umutdiler/dailygourme2/classes/Data.kt,c\6\c68428040deee680be6c63c0bd109fecc5d031ae
+o
+?app/src/main/java/com/umutdiler/dailygourme2/classes/SetData.kt,0\7\07361b3d147bb4fc7dd040682b27ebf308e766e1

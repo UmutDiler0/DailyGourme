@@ -8,20 +8,20 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import com.google.firebase.firestore.toObject
 import com.umutdiler.dailygourme2.adapter.RecepiesAdapter
+import com.umutdiler.dailygourme2.classes.GetData
 import com.umutdiler.dailygourme2.classes.Recepies
 import com.umutdiler.dailygourme2.databinding.FragmentMyRecepiesBinding
 
 
-class MyRecepies : Fragment() {
+class MyRecepies : Fragment(), GetData {
 
     private var _binding: FragmentMyRecepiesBinding? = null
     private val binding get() = _binding!!
     var recepieList: MutableList<Recepies> = mutableListOf()
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var adapter: RecepiesAdapter
-    lateinit var recepie : Recepies
+    private var recepie : Recepies = Recepies("","","","",)
 
 
     override fun onCreateView(
@@ -33,12 +33,19 @@ class MyRecepies : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        recepie = Recepies("","","")
-        getData()
+
+
+        recepie.email = arguments?.let { MyRecepiesArgs.fromBundle(it).email }.toString()
+
+        getData(recepie.email)
 
     }
 
-    fun getData() {
+    override fun getData(email : String) {
+
+        recepieList.clear()
+
+
         db!!.collection("recepies").orderBy("foodName", Query.Direction.ASCENDING)
             .addSnapshotListener { value, error ->
             if (error != null) {
@@ -51,11 +58,11 @@ class MyRecepies : Fragment() {
                             val foodName = document.get("foodName") as String
                             val ingredients = document.get("ingredients") as String
                             val description = document.get("description") as String
-                            recepie = Recepies(foodName,ingredients,description)
+                            val email = document.get("email") as String
+
+                            recepie = Recepies(foodName,ingredients,description,email)
                             recepieList.add(recepie)
                         }
-
-
 
                         adapter = RecepiesAdapter(recepieList)
                         binding.recepiesRecycler.adapter = adapter

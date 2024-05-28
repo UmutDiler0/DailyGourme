@@ -57,10 +57,21 @@
         android:id="@+id/addRecepieFragment"
         android:name="com.umutdiler.dailygourme2.fragments.AddRecepieFragment"
         android:label="fragment_add_recepie"
-        tools:layout="@layout/fragment_add_recepie" />
+        tools:layout="@layout/fragment_add_recepie" >
+
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/myRecepies"
         android:name="com.umutdiler.dailygourme2.fragments.MyRecepies"
         android:label="fragment_my_recepies"
-        tools:layout="@layout/fragment_my_recepies" />
+        tools:layout="@layout/fragment_my_recepies" >
+
+
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
 </navigation>

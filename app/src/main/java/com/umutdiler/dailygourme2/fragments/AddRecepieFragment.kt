@@ -10,15 +10,17 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.umutdiler.dailygourme2.classes.GetData
 import com.umutdiler.dailygourme2.classes.Recepies
 import com.umutdiler.dailygourme2.databinding.FragmentAddRecepieBinding
 
 
-class AddRecepieFragment : Fragment() {
+class AddRecepieFragment : Fragment(), GetData {
 
     private var _binding: FragmentAddRecepieBinding? = null
     private val binding get() = _binding!!
     val db = Firebase.firestore
+    var recepie = Recepies("", "", "","")
 
 
     override fun onCreateView(
@@ -31,32 +33,38 @@ class AddRecepieFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var recepie = Recepies("", "", "")
-
         binding.saveRecepie.setOnClickListener {
+            setData(it)
+        }
+    }
 
-            recepie.foodName = binding.recepieName.text.toString()
-            recepie.ingredients = binding.recepieIngredient.text.toString()
-            recepie.description = binding.howToMake.text.toString()
+    override fun setData(view : View) {
+        with(recepie){
+            foodName = binding.recepieName.text.toString()
+            ingredients = binding.recepieIngredient.text.toString()
+            description = binding.howToMake.text.toString()
+            email = arguments.let { com.umutdiler.dailygourme2.fragments.AddRecepieFragmentArgs.fromBundle(it!!).email }
+        }
 
-
-            if (recepie.foodName.isEmpty() || recepie.ingredients.isEmpty()) {
-                Toast.makeText(
-                    requireContext(), "Recepie or Ingredient can't leave empty", Toast.LENGTH_LONG
-                ).show()
-            } else {
-                val recepieHash = hashMapOf(
-                    "foodName" to recepie.foodName,
-                    "ingredients" to recepie.ingredients,
-                    "description" to recepie.description
-                )
-                db.collection("recepies").document(recepie.foodName).set(recepieHash)
-                    .addOnSuccessListener { documentReference ->
-                        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference}")
-                    }.addOnFailureListener { e ->
-                        Log.w(TAG, "Error adding document", e)
-                    }
-            }
+        if (recepie.foodName.isEmpty() || recepie.ingredients.isEmpty()) {
+            Toast.makeText(
+                requireContext(), "Recepie or Ingredient can't leave empty", Toast.LENGTH_LONG
+            ).show()
+        } else {
+            val recepieHash = hashMapOf(
+                "foodName" to recepie.foodName,
+                "ingredients" to recepie.ingredients,
+                "description" to recepie.description,
+                "email" to recepie.email
+            )
+            db.collection("recepies").document(recepie.foodName).set(recepieHash)
+                .addOnSuccessListener { documentReference ->
+                    Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference}")
+                    Toast.makeText(requireContext(),"Your recepie successfully added",Toast.LENGTH_LONG).show()
+                }.addOnFailureListener { e ->
+                    Log.w(TAG, "Error adding document", e)
+                    Toast.makeText(requireContext(),"Your recepie is not added",Toast.LENGTH_LONG).show()
+                }
         }
     }
 }

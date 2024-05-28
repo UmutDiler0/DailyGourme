@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Prompt"
         android:inputType="text"/>
 
     <Button
@@ -38,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="14dp"
-        android:text="Result Area" />
+        android:text="Please your request include 'tarif' or 'recepie' if you don't write these app won't work" />
 
 
 </LinearLayout>

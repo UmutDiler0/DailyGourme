@@ -45,6 +45,17 @@
             android:text="Food Instructions"
             android:textSize="20sp" />
 
+        <TextView
+            android:id="@+id/recyclerEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            android:layout_below="@id/foodInstructions"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"/>
+
+
     </RelativeLayout>
 
 

@@ -11,6 +11,14 @@ class RecepiesAdapter(var recepieList : MutableList<Recepies>) : RecyclerView.Ad
 
     class RecepiesViewHolder(val binding : RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
         val recyclerRowBinding = binding
+        fun bind(recepie : Recepies){
+            with(recyclerRowBinding){
+                foodName.text = recepie.foodName
+                foodIngredients.text = recepie.ingredients
+                foodInstructions.text = recepie.description
+                recyclerEmail.text = recepie.email
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecepiesViewHolder {
@@ -24,10 +32,8 @@ class RecepiesAdapter(var recepieList : MutableList<Recepies>) : RecyclerView.Ad
     }
 
     override fun onBindViewHolder(holder: RecepiesViewHolder, position: Int) {
-        val recepie = recepieList[position]
-        holder.recyclerRowBinding.foodName.text = recepie.foodName
-        holder.recyclerRowBinding.foodIngredients.text = recepie.ingredients
-        holder.recyclerRowBinding.foodInstructions.text = recepie.description
+
+        holder.bind(recepieList[position])
 
     }
 }

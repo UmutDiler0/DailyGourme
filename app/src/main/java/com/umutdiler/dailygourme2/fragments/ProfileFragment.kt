@@ -13,10 +13,11 @@ import com.google.firebase.firestore.Query
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.umutdiler.dailygourme2.RecommendRecepieActivity
+import com.umutdiler.dailygourme2.classes.GetData
 import com.umutdiler.dailygourme2.databinding.FragmentProfileBinding
 
 
-class ProfileFragment : Fragment() {
+class ProfileFragment : Fragment(), GetData {
 
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
@@ -46,17 +47,17 @@ class ProfileFragment : Fragment() {
             startActivity(intent)
         }
         binding.addRecepieButton.setOnClickListener {
-            val action = ProfileFragmentDirections.actionProfileFragmentToAddRecepieFragment()
+            val action = ProfileFragmentDirections.actionProfileFragmentToAddRecepieFragment(email)
             Navigation.findNavController(it).navigate(action)
         }
         binding.myRecepiesButton.setOnClickListener {
-            val action = ProfileFragmentDirections.actionProfileFragmentToMyRecepies()
+            val action = ProfileFragmentDirections.actionProfileFragmentToMyRecepies(email)
             Navigation.findNavController(it).navigate(action)
         }
 
     }
 
-    private fun getData(email: String) {
+    override fun getData(email : String) {
 
         // burada firebase ile bağlantı kuruyoruz ve verileri çekiyoruz
 
@@ -79,15 +80,18 @@ class ProfileFragment : Fragment() {
                                     val height = document.get("height") as String
                                     val weight = document.get("weight") as String
 
-                                    val calorie =
+                                    var calorie =
                                         (weight.toDouble() * 13.75 + height.toDouble() * 5 - age.toDouble() * 6.77).toString()
+                                    calorie  = String.format("%.2f", calorie.toFloat())
+
+
 
                                     with(binding) {
                                         nameText.text = "$name $last"
                                         ageText.text = "Age : $age"
                                         heightText.text = "Height : $height"
                                         weightText.text = "Weight $weight"
-                                        calorieText.text = "Avarage Daily Calorie : $calorie "
+                                        calorieText.text = "Avarage Calorie : $calorie kcal"
                                     }
                                 }
 
