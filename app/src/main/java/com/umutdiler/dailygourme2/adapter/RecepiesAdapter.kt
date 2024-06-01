@@ -9,6 +9,11 @@ import com.umutdiler.dailygourme2.databinding.RecyclerRowBinding
 
 class RecepiesAdapter(var recepieList : MutableList<Recepies>) : RecyclerView.Adapter<RecepiesAdapter.RecepiesViewHolder>() {
 
+    /**
+     * burada RecepiesAdapter adında bir class tanımlıyoruz ve bu classı RecyclerView sınıfından miras alıyoruz
+     * my recepieste oluşturduğumuz ve içine değişkenleri tanımladığımız liste yapımızı burada kullanıyoruz
+     * bunu da bind fonksiyonunun içinde yapıyoruz
+     */
     class RecepiesViewHolder(val binding : RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root){
         val recyclerRowBinding = binding
         fun bind(recepie : Recepies){

@@ -1,10 +1,9 @@
 
-ekotlin:S6615%" Remove this useless initializer.(éûÕ8Û”Óúû1J$3f20d5c9-4b2c-41d6-bf75-19449552ce60
-œkotlin:S3776<"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(é²Õ€ıÿÿÿÿ8î”Óúû1J$916a8cef-5a71-4e55-9587-5ca2511380e0
-skotlin:S1066F".Merge this "if" statement with the nested one.(€ÅÊ¥8ó”Óúû1J$bf11e44f-c0dd-4fa4-adeb-3ac3a334128d
-vkotlin:S6518L",Replace function call with indexed accessor.(²¨­âşÿÿÿÿ8ôè¼ùû1J$28cd3e7d-7b32-43d4-8eb9-e91451154c74
-qkotlin:S6518M",Replace function call with indexed accessor.(Ç…ö¹8õè¼ùû1J$4afa5b27-f899-4e57-8dfc-e19b94a7f8e3
-qkotlin:S6518N",Replace function call with indexed accessor.(º½·¼8õè¼ùû1J$c32eb127-fe6f-4fed-ace7-f4c3ea152cd9
-qkotlin:S6518O",Replace function call with indexed accessor.(ªÓìš8õè¼ùû1J$2c1efe36-0861-4c27-abbd-bf4d76b85561
-vkotlin:S6518P",Replace function call with indexed accessor.(üÎ¾ºşÿÿÿÿ8÷”Óúû1J$59b833f7-b4ac-40b8-b5da-bbc5db45a8cb
-vkotlin:S6518Q",Replace function call with indexed accessor.(Ï¼¥ûÿÿÿÿ8ø”Óúû1J$44e33308-8396-4155-8634-7e8af3a1b456
+œkotlin:S3776@"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(é²Õ€ıÿÿÿÿ8î”Óúû1J$a05279b5-0297-4c0d-9f3d-fda00de44942
+skotlin:S1066G".Merge this "if" statement with the nested one.(€ÅÊ¥8ó”Óúû1J$35bf27eb-68d8-41f5-976f-26659c56bcd2
+vkotlin:S6518M",Replace function call with indexed accessor.(²¨­âşÿÿÿÿ8¯½±‡ı1J$b4464137-2dca-494c-9600-5a8cfef718a9
+qkotlin:S6518N",Replace function call with indexed accessor.(Ç…ö¹8¯½±‡ı1J$02e85e13-ed54-460d-a402-aec89aa4e9bd
+qkotlin:S6518O",Replace function call with indexed accessor.(º½·¼8¯½±‡ı1J$42dc7b4e-a963-49cb-9bc2-8d2ff322454e
+qkotlin:S6518P",Replace function call with indexed accessor.(ªÓìš8¯½±‡ı1J$13b6d9d7-82a2-4f59-8200-8e7796ba2aed
+vkotlin:S6518Q",Replace function call with indexed accessor.(üÎ¾ºşÿÿÿÿ8¯½±‡ı1J$8caba9bd-7368-4591-9850-884bcfb4e0e7
+vkotlin:S6518R",Replace function call with indexed accessor.(Ï¼¥ûÿÿÿÿ8°½±‡ı1J$8d790fde-a7d1-4751-95d6-43cc3f770a56

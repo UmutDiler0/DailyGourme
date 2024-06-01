@@ -13,12 +13,14 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.umutdiler.dailygourme2.classes.GetData
+import com.umutdiler.dailygourme2.classes.SetData
 import com.umutdiler.dailygourme2.classes.Person
 import com.umutdiler.dailygourme2.databinding.FragmentRegisterBinding
 
-
-class RegisterFragment : Fragment(), GetData {
+/**
+ * proifler fragmentta olduğu gibi burada da bir implementasyon yapıyoruz
+ */
+class RegisterFragment : Fragment(), SetData {
 
     private var _binding : FragmentRegisterBinding? = null
     private val binding get() = _binding!!
@@ -39,13 +41,8 @@ class RegisterFragment : Fragment(), GetData {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /*
-        setOnClickListener ile butona tıklanınca yapılacak işlemleri belirliyoruz
-         */
-
         binding.saveButton.setOnClickListener {
             setData(it)
-
         }
     }
     fun updateUI(user: FirebaseUser?){
@@ -55,6 +52,10 @@ class RegisterFragment : Fragment(), GetData {
     }
 
     override fun setData(view : View) {
+        /**
+         * boşluklara girdiğimiz verileri person nesnesinin propertylerine atıyoruz
+         * property ne diye sormayın gidin çeviriden bakın :D
+         */
         with(person){
             email = binding.registerEmail.text.toString()
             password = binding.registerPassword.text.toString()
@@ -65,7 +66,7 @@ class RegisterFragment : Fragment(), GetData {
             weight = binding.registerWeight.text.toString()
         }
 
-        //Eğer boş bir alan varsa kullanıcıya uyarı veriyoruz yoksa database'e kayıt işlemini gerçekleştiriyoruz
+
 
         if(person.email.isEmpty() || person.password.isEmpty() || person.height.isEmpty() ||
             person.weight.isEmpty() ||

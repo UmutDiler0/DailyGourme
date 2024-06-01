@@ -16,7 +16,10 @@ import com.umutdiler.dailygourme2.RecommendRecepieActivity
 import com.umutdiler.dailygourme2.classes.GetData
 import com.umutdiler.dailygourme2.databinding.FragmentProfileBinding
 
-
+/**
+ * farklı olaarak GetData implement ediyoruz interfacein içindeki getData fonksiynunu da
+ * override ediyoruz
+ */
 class ProfileFragment : Fragment(), GetData {
 
     private var _binding: FragmentProfileBinding? = null
@@ -34,14 +37,15 @@ class ProfileFragment : Fragment(), GetData {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var email = ""
-        // burada emaili alıyoruz
-        email = arguments?.let { ProfileFragmentArgs.fromBundle(it).email }.toString()
+        /**
+         * burda farklı olarak aksiyonla main fragmenttan girilen email bilgisini bu fragmenta taşıyoruz
+         * ve bu bilgiyi getData fonksiyonuna gönderiyoruz
+         */
+        var email = arguments?.let { ProfileFragmentArgs.fromBundle(it).email }.toString()
 
         getData(email)
 
-
-        // yine set onc listenerlarla butonlara tıklandığında ilgili fragmente gitmesini sağlıyoruz
+        // intent aksiyonlardan farklı olarak bir fragmenta değil activitye geçmeyi sağlar
         binding.recommendRecepie.setOnClickListener {
             val intent = Intent(requireActivity(), RecommendRecepieActivity::class.java)
             startActivity(intent)
@@ -57,10 +61,7 @@ class ProfileFragment : Fragment(), GetData {
 
     }
 
-    override fun getData(email : String) {
-
-        // burada firebase ile bağlantı kuruyoruz ve verileri çekiyoruz
-
+    override fun getData(email: String) {
 
         db.collection("users").orderBy("email", Query.Direction.ASCENDING)
             .addSnapshotListener { snapshot, error ->
@@ -82,16 +83,16 @@ class ProfileFragment : Fragment(), GetData {
 
                                     var calorie =
                                         (weight.toDouble() * 13.75 + height.toDouble() * 5 - age.toDouble() * 6.77).toString()
-                                    calorie  = String.format("%.2f", calorie.toFloat())
+
 
 
 
                                     with(binding) {
-                                        nameText.text = "$name $last"
-                                        ageText.text = "Age : $age"
-                                        heightText.text = "Height : $height"
-                                        weightText.text = "Weight $weight"
-                                        calorieText.text = "Avarage Calorie : $calorie kcal"
+                                        nameText.text = String.format("%s %s", name, last)
+                                        ageText.text = String.format("Age : %s", age)
+                                        heightText.text = String.format("Height : %s", height)
+                                        weightText.text = String.format("Weight : %s", weight)
+                                        calorieText.text = String.format("Calorie : %s", calorie)
                                     }
                                 }
 

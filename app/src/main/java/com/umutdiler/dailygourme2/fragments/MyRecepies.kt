@@ -10,10 +10,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
 import com.umutdiler.dailygourme2.adapter.RecepiesAdapter
 import com.umutdiler.dailygourme2.classes.GetData
+import com.umutdiler.dailygourme2.classes.SetData
 import com.umutdiler.dailygourme2.classes.Recepies
 import com.umutdiler.dailygourme2.databinding.FragmentMyRecepiesBinding
 
-
+/**
+ * diğer fragmentlardan farklı olarak bir dinamaik liste yapımız var bu liste içine sasdece Recepie türünden değişkenler alabiliriz
+ * ve bu listeyi başlangıçta boş bir liste olarak tanımlıyoruz
+ */
 class MyRecepies : Fragment(), GetData {
 
     private var _binding: FragmentMyRecepiesBinding? = null
@@ -21,7 +25,7 @@ class MyRecepies : Fragment(), GetData {
     var recepieList: MutableList<Recepies> = mutableListOf()
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
     private lateinit var adapter: RecepiesAdapter
-    private var recepie : Recepies = Recepies("","","","",)
+    private var recepie  = Recepies("","","","",)
 
 
     override fun onCreateView(

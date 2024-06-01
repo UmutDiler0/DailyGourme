@@ -10,12 +10,12 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.umutdiler.dailygourme2.classes.GetData
+import com.umutdiler.dailygourme2.classes.SetData
 import com.umutdiler.dailygourme2.classes.Recepies
 import com.umutdiler.dailygourme2.databinding.FragmentAddRecepieBinding
 
 
-class AddRecepieFragment : Fragment(), GetData {
+class AddRecepieFragment : Fragment(), SetData {
 
     private var _binding: FragmentAddRecepieBinding? = null
     private val binding get() = _binding!!
@@ -39,6 +39,9 @@ class AddRecepieFragment : Fragment(), GetData {
     }
 
     override fun setData(view : View) {
+        /**
+         * Bu fragment registerFragment ile aynı mantıkta çalıyor tek fark burada kullandığımız nesen Recepie sınıfına ait
+         */
         with(recepie){
             foodName = binding.recepieName.text.toString()
             ingredients = binding.recepieIngredient.text.toString()
@@ -46,7 +49,7 @@ class AddRecepieFragment : Fragment(), GetData {
             email = arguments.let { com.umutdiler.dailygourme2.fragments.AddRecepieFragmentArgs.fromBundle(it!!).email }
         }
 
-        if (recepie.foodName.isEmpty() || recepie.ingredients.isEmpty()) {
+        if (recepie.foodName.isEmpty() || recepie.ingredients.isEmpty() || recepie.description.isEmpty()) {
             Toast.makeText(
                 requireContext(), "Recepie or Ingredient can't leave empty", Toast.LENGTH_LONG
             ).show()

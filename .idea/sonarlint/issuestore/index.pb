@@ -138,7 +138,5 @@ o
 ?app/src/main/java/com/umutdiler/dailygourme2/classes/Partner.kt,1\0\107a118a66fa16fd551805b9466d70e1ae3d2fce
 o
 ?app/src/main/java/com/umutdiler/dailygourme2/classes/GetData.kt,b\0\b0e76a4575b2ddabd9064bbe7eebd3bec812d3db
-l
-<app/src/main/java/com/umutdiler/dailygourme2/classes/Data.kt,c\6\c68428040deee680be6c63c0bd109fecc5d031ae
 o
 ?app/src/main/java/com/umutdiler/dailygourme2/classes/SetData.kt,0\7\07361b3d147bb4fc7dd040682b27ebf308e766e1
