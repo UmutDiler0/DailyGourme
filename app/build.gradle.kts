@@ -64,6 +64,9 @@ android {
     }
 
     dependencies {
+
+        implementation("com.google.android.material:material:1.11.0")
+        
         implementation("androidx.activity:activity:1.8.0")
         implementation("com.google.android.libraries.places:places:3.4.0")
         val nav_version = "2.7.7"
@@ -74,7 +77,7 @@ android {
         implementation("com.airbnb.android:lottie:$lottieVersion")
         implementation("androidx.core:core-ktx:1.12.0")
         implementation("androidx.appcompat:appcompat:1.6.1")
-        implementation("com.google.android.material:material:1.11.0")
+
         implementation("androidx.constraintlayout:constraintlayout:2.1.4")
         implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
         implementation("androidx.navigation:navigation-ui-ktx:$nav_version")

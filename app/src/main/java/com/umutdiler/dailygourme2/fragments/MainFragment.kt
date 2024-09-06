@@ -9,24 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.Navigation
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.umutdiler.dailygourme2.MainActivity
+import com.umutdiler.dailygourme2.R
 import com.umutdiler.dailygourme2.classes.Person
 import com.umutdiler.dailygourme2.databinding.FragmentMainBinding
 
-/**
- * burada az önceki activityde anlatılan şeylerin aynısı var
- */
 class MainFragment : Fragment() {
 
     private var _binding : FragmentMainBinding? = null
     private val binding get() = _binding!!
-    // auth database için geçerli olan bir değişken databasedeki kişi giriş sistemi için kullanılıyor
     private  var auth = Firebase.auth
-    // burada ise Person sınıfında person adında bir nesne  oluşturuyoruz ve içindeki propertylere boş string değerler atıyoruz
     private var person = Person("","","","","","","")
+
 
 
     override fun onCreateView(
@@ -40,10 +39,8 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        /**
-         * burada register ve login butonlarına tıklanınca ne olacağını belirtiyoruz fragment_nav da belirttiğimiz aksiyonları
-         * çağırıyoruz fragment_nav da verdiğimiz her bir ok aksiyon anlamına geliyor
-         */
+        val bottomNav = (activity as MainActivity).findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.visibility = View.VISIBLE
 
         binding.registerButton.setOnClickListener {
             val action = MainFragmentDirections.actionMainFragment2ToRegisterFragment2()
@@ -53,18 +50,10 @@ class MainFragment : Fragment() {
             person.email = binding.emailText.text.toString()
             person.password = binding.passwordText.text.toString()
 
-            // boş alan olmadığından emin oluyoruz ve eğer boş alan varsa kullanıcıya uyarı veriyoruz aynı zamanda
-            // email ve passwordin doğru olup olmadığını kontrol ediyoruz
-
             if(person.email.isEmpty() || person.password.isEmpty()){
                 Toast.makeText(requireContext(),"Email or Password can't leave empty",
                     Toast.LENGTH_LONG).show()
             }else{
-                /**
-                 * burada firebase auth database kullanarak email ve password ile giriş yapmaya çalışıyoruz
-                 * bunların databasedeki doğruluğunu kontrol ediyoruz ve eğer doğruysa profile fragmentine yönlendiriyoruz
-                 * eğer yanlışsa kullanıcıya uyarı veriyoruz
-                 */
                 auth.signInWithEmailAndPassword(person.email,person.password).addOnCompleteListener {task->
                     if(task.isSuccessful){
                         Log.d(TAG,"signInWithEmail:Success")
